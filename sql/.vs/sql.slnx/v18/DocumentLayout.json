@@ -1,0 +1,100 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\01_DDL.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:01_DDL.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\05_Indexes_Transactions_Queries.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:05_Indexes_Transactions_Queries.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\04_Views.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:04_Views.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\03_Triggers.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:03_Triggers.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\02_DML.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:02_DML.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "01_DDL.sql - not connected",
+              "DocumentMoniker": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\01_DDL.sql",
+              "RelativeDocumentMoniker": "01_DDL.sql",
+              "ToolTip": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\01_DDL.sql - not connected",
+              "RelativeToolTip": "01_DDL.sql - not connected",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-04-30T05:55:04.585Z",
+              "EditorCaption": " - not connected"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "02_DML.sql - not connected",
+              "DocumentMoniker": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\02_DML.sql",
+              "RelativeDocumentMoniker": "02_DML.sql",
+              "ToolTip": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\02_DML.sql - not connected",
+              "RelativeToolTip": "02_DML.sql - not connected",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-04-30T05:55:08.498Z",
+              "EditorCaption": " - not connected"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "03_Triggers.sql - not connected",
+              "DocumentMoniker": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\03_Triggers.sql",
+              "RelativeDocumentMoniker": "03_Triggers.sql",
+              "ToolTip": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\03_Triggers.sql - not connected",
+              "RelativeToolTip": "03_Triggers.sql - not connected",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-04-30T05:55:18.891Z",
+              "EditorCaption": " - not connected"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "04_Views.sql - not connected",
+              "DocumentMoniker": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\04_Views.sql",
+              "RelativeDocumentMoniker": "04_Views.sql",
+              "ToolTip": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\04_Views.sql - not connected",
+              "RelativeToolTip": "04_Views.sql - not connected",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-04-30T05:55:21.418Z",
+              "EditorCaption": " - not connected"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "05_Indexes_Transactions_Queries.sql - not connected",
+              "DocumentMoniker": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\05_Indexes_Transactions_Queries.sql",
+              "RelativeDocumentMoniker": "05_Indexes_Transactions_Queries.sql",
+              "ToolTip": "E:\\One Drives\\OneDrive - FAST National University\\Desktop\\FAST\\Semester6_Spring26\\DB\\projectGithub\\DB-Project\\sql\\05_Indexes_Transactions_Queries.sql - not connected",
+              "RelativeToolTip": "05_Indexes_Transactions_Queries.sql - not connected",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-04-30T05:55:23.57Z",
+              "EditorCaption": " - not connected"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

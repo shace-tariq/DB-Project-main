@@ -1,0 +1,255 @@
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ==================== ROLES ==================== -->
+    <mxCell id="t_roles" value="roles" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="30" y="30" width="200" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="r_role_id"   value="PK role_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_roles"><mxGeometry y="30" width="200" height="30" as="geometry" /></mxCell>
+    <mxCell id="r_role_name" value="role_name VARCHAR(50)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_roles"><mxGeometry y="60" width="200" height="30" as="geometry" /></mxCell>
+    <mxCell id="r_desc"      value="description TEXT" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_roles"><mxGeometry y="90" width="200" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== USERS ==================== -->
+    <mxCell id="t_users" value="users" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="290" y="30" width="230" height="240" as="geometry" />
+    </mxCell>
+    <mxCell id="u_user_id"   value="PK user_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_users"><mxGeometry y="30" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="u_username"  value="username VARCHAR(100)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_users"><mxGeometry y="60" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="u_pass"      value="password_hash VARCHAR(255)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_users"><mxGeometry y="90" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="u_fullname"  value="full_name VARCHAR(150)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_users"><mxGeometry y="120" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="u_email"     value="email VARCHAR(150)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_users"><mxGeometry y="150" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="u_role_id"   value="FK role_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_users"><mxGeometry y="180" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="u_active"    value="is_active BOOLEAN" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_users"><mxGeometry y="210" width="230" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== PERMISSIONS ==================== -->
+    <mxCell id="t_perms" value="permissions" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="30" y="210" width="200" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="p_perm_id"   value="PK permission_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_perms"><mxGeometry y="30" width="200" height="30" as="geometry" /></mxCell>
+    <mxCell id="p_perm_name" value="permission_name VARCHAR(100)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_perms"><mxGeometry y="60" width="200" height="30" as="geometry" /></mxCell>
+    <mxCell id="p_desc"      value="description TEXT" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_perms"><mxGeometry y="90" width="200" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== ROLE_PERMISSIONS (junction) ==================== -->
+    <mxCell id="t_rp" value="role_permissions" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="30" y="380" width="200" height="90" as="geometry" />
+    </mxCell>
+    <mxCell id="rp_role_id" value="FK role_id (INT) [PK]" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_rp"><mxGeometry y="30" width="200" height="30" as="geometry" /></mxCell>
+    <mxCell id="rp_perm_id" value="FK permission_id (INT) [PK]" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rp"><mxGeometry y="60" width="200" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== DISASTER_TYPES ==================== -->
+    <mxCell id="t_dtype" value="disaster_types" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="590" y="30" width="210" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="dt_id"   value="PK disaster_type_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_dtype"><mxGeometry y="30" width="210" height="30" as="geometry" /></mxCell>
+    <mxCell id="dt_name" value="type_name VARCHAR(100)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_dtype"><mxGeometry y="60" width="210" height="30" as="geometry" /></mxCell>
+    <mxCell id="dt_desc" value="description TEXT" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_dtype"><mxGeometry y="90" width="210" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== EMERGENCY_REPORTS ==================== -->
+    <mxCell id="t_er" value="emergency_reports" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="590" y="210" width="230" height="330" as="geometry" />
+    </mxCell>
+    <mxCell id="er_id"       value="PK report_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_er"><mxGeometry y="30" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="er_cname"    value="citizen_name VARCHAR(150)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_er"><mxGeometry y="60" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="er_lat"      value="location_lat DECIMAL(10,7)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_er"><mxGeometry y="90" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="er_lng"      value="location_lng DECIMAL(10,7)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_er"><mxGeometry y="120" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="er_locdesc"  value="location_desc VARCHAR(255)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_er"><mxGeometry y="150" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="er_dtype"    value="FK disaster_type_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_er"><mxGeometry y="180" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="er_severity" value="severity_level ENUM" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_er"><mxGeometry y="210" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="er_status"   value="status ENUM" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_er"><mxGeometry y="240" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="er_repby"    value="FK reported_by (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_er"><mxGeometry y="270" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="er_team"     value="FK assigned_team_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_er"><mxGeometry y="300" width="230" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== RESCUE_TEAMS ==================== -->
+    <mxCell id="t_rt" value="rescue_teams" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="900" y="210" width="220" height="210" as="geometry" />
+    </mxCell>
+    <mxCell id="rt_id"     value="PK team_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_rt"><mxGeometry y="30" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="rt_name"   value="team_name VARCHAR(150)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rt"><mxGeometry y="60" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="rt_type"   value="team_type ENUM" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rt"><mxGeometry y="90" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="rt_loc"    value="current_location VARCHAR(255)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rt"><mxGeometry y="120" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="rt_avail"  value="availability ENUM" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rt"><mxGeometry y="150" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="rt_mem"    value="member_count INT" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rt"><mxGeometry y="180" width="220" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== TEAM_ACTIVITY_LOG ==================== -->
+    <mxCell id="t_tal" value="team_activity_log" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="900" y="470" width="220" height="210" as="geometry" />
+    </mxCell>
+    <mxCell id="tal_id"      value="PK log_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_tal"><mxGeometry y="30" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="tal_team"    value="FK team_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_tal"><mxGeometry y="60" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="tal_rep"     value="FK report_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_tal"><mxGeometry y="90" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="tal_prev"    value="previous_status VARCHAR(50)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_tal"><mxGeometry y="120" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="tal_new"     value="new_status VARCHAR(50)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_tal"><mxGeometry y="150" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="tal_at"      value="changed_at DATETIME" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_tal"><mxGeometry y="180" width="220" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== WAREHOUSES ==================== -->
+    <mxCell id="t_wh" value="warehouses" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+      <mxGeometry x="590" y="620" width="220" height="150" as="geometry" />
+    </mxCell>
+    <mxCell id="wh_id"   value="PK warehouse_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_wh"><mxGeometry y="30" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="wh_name" value="warehouse_name VARCHAR(150)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_wh"><mxGeometry y="60" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="wh_loc"  value="location VARCHAR(255)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_wh"><mxGeometry y="90" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="wh_mgr"  value="FK manager_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_wh"><mxGeometry y="120" width="220" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== RESOURCE_TYPES ==================== -->
+    <mxCell id="t_rtype" value="resource_types" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+      <mxGeometry x="860" y="620" width="220" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="rtid_id"   value="PK resource_type_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_rtype"><mxGeometry y="30" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="rtid_name" value="type_name VARCHAR(100)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rtype"><mxGeometry y="60" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="rtid_unit" value="unit VARCHAR(50)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rtype"><mxGeometry y="90" width="220" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== INVENTORY ==================== -->
+    <mxCell id="t_inv" value="inventory" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+      <mxGeometry x="590" y="810" width="230" height="180" as="geometry" />
+    </mxCell>
+    <mxCell id="inv_id"    value="PK inventory_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_inv"><mxGeometry y="30" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="inv_wh"    value="FK warehouse_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_inv"><mxGeometry y="60" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="inv_rt"    value="FK resource_type_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_inv"><mxGeometry y="90" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="inv_qty"   value="quantity DECIMAL(12,2)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_inv"><mxGeometry y="120" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="inv_thr"   value="threshold_level DECIMAL(12,2)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_inv"><mxGeometry y="150" width="230" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== RESOURCE_ALLOCATION_REQUESTS ==================== -->
+    <mxCell id="t_rar" value="resource_allocation_requests" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+      <mxGeometry x="860" y="810" width="240" height="300" as="geometry" />
+    </mxCell>
+    <mxCell id="rar_id"    value="PK request_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_rar"><mxGeometry y="30" width="240" height="30" as="geometry" /></mxCell>
+    <mxCell id="rar_rep"   value="FK report_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rar"><mxGeometry y="60" width="240" height="30" as="geometry" /></mxCell>
+    <mxCell id="rar_wh"    value="FK warehouse_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rar"><mxGeometry y="90" width="240" height="30" as="geometry" /></mxCell>
+    <mxCell id="rar_rt"    value="FK resource_type_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rar"><mxGeometry y="120" width="240" height="30" as="geometry" /></mxCell>
+    <mxCell id="rar_rqty"  value="requested_qty DECIMAL(12,2)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rar"><mxGeometry y="150" width="240" height="30" as="geometry" /></mxCell>
+    <mxCell id="rar_aqty"  value="approved_qty DECIMAL(12,2)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rar"><mxGeometry y="180" width="240" height="30" as="geometry" /></mxCell>
+    <mxCell id="rar_stat"  value="status ENUM" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rar"><mxGeometry y="210" width="240" height="30" as="geometry" /></mxCell>
+    <mxCell id="rar_reqby" value="FK requested_by (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rar"><mxGeometry y="240" width="240" height="30" as="geometry" /></mxCell>
+    <mxCell id="rar_apby"  value="FK approved_by (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_rar"><mxGeometry y="270" width="240" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== HOSPITALS ==================== -->
+    <mxCell id="t_hosp" value="hospitals" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1180" y="210" width="220" height="210" as="geometry" />
+    </mxCell>
+    <mxCell id="h_id"    value="PK hospital_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_hosp"><mxGeometry y="30" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="h_name"  value="hospital_name VARCHAR(200)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_hosp"><mxGeometry y="60" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="h_loc"   value="location VARCHAR(255)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_hosp"><mxGeometry y="90" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="h_total" value="total_beds INT" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_hosp"><mxGeometry y="120" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="h_avail" value="available_beds INT" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_hosp"><mxGeometry y="150" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="h_active" value="is_active BOOLEAN" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_hosp"><mxGeometry y="180" width="220" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== PATIENTS ==================== -->
+    <mxCell id="t_pat" value="patients" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1180" y="470" width="220" height="240" as="geometry" />
+    </mxCell>
+    <mxCell id="pat_id"    value="PK patient_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_pat"><mxGeometry y="30" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="pat_name"  value="full_name VARCHAR(150)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_pat"><mxGeometry y="60" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="pat_age"   value="age INT" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_pat"><mxGeometry y="90" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="pat_rep"   value="FK report_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_pat"><mxGeometry y="120" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="pat_hosp"  value="FK hospital_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_pat"><mxGeometry y="150" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="pat_stat"  value="status ENUM" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_pat"><mxGeometry y="180" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="pat_adm"   value="admission_date DATETIME" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_pat"><mxGeometry y="210" width="220" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== FINANCIAL_CATEGORIES ==================== -->
+    <mxCell id="t_fcat" value="financial_categories" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+      <mxGeometry x="30" y="620" width="210" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="fc_id"   value="PK category_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_fcat"><mxGeometry y="30" width="210" height="30" as="geometry" /></mxCell>
+    <mxCell id="fc_name" value="category_name VARCHAR(100)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_fcat"><mxGeometry y="60" width="210" height="30" as="geometry" /></mxCell>
+    <mxCell id="fc_type" value="category_type ENUM" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_fcat"><mxGeometry y="90" width="210" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== FINANCIAL_TRANSACTIONS ==================== -->
+    <mxCell id="t_ft" value="financial_transactions" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+      <mxGeometry x="30" y="800" width="230" height="270" as="geometry" />
+    </mxCell>
+    <mxCell id="ft_id"    value="PK transaction_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_ft"><mxGeometry y="30" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ft_rep"   value="FK report_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_ft"><mxGeometry y="60" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ft_cat"   value="FK category_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_ft"><mxGeometry y="90" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ft_amt"   value="amount DECIMAL(15,2)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_ft"><mxGeometry y="120" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ft_date"  value="transaction_date DATETIME" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_ft"><mxGeometry y="150" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ft_donor" value="donor_name VARCHAR(150)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_ft"><mxGeometry y="180" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ft_recby" value="FK recorded_by (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_ft"><mxGeometry y="210" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ft_stat"  value="status ENUM" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_ft"><mxGeometry y="240" width="230" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== APPROVAL_REQUESTS ==================== -->
+    <mxCell id="t_appr" value="approval_requests" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#f0e6ff;strokeColor=#9673a6;" vertex="1" parent="1">
+      <mxGeometry x="310" y="620" width="230" height="210" as="geometry" />
+    </mxCell>
+    <mxCell id="ap_id"    value="PK approval_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_appr"><mxGeometry y="30" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ap_type"  value="request_type ENUM" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_appr"><mxGeometry y="60" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ap_ref"   value="reference_id INT" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_appr"><mxGeometry y="90" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ap_reqby" value="FK requested_by (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_appr"><mxGeometry y="120" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ap_apby"  value="FK approved_by (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_appr"><mxGeometry y="150" width="230" height="30" as="geometry" /></mxCell>
+    <mxCell id="ap_stat"  value="status ENUM" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_appr"><mxGeometry y="180" width="230" height="30" as="geometry" /></mxCell>
+
+    <!-- ==================== AUDIT_LOGS ==================== -->
+    <mxCell id="t_al" value="audit_logs" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+      <mxGeometry x="310" y="880" width="220" height="180" as="geometry" />
+    </mxCell>
+    <mxCell id="al_id"     value="PK audit_log_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=1;" vertex="1" parent="t_al"><mxGeometry y="30" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="al_uid"    value="FK user_id (INT)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_al"><mxGeometry y="60" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="al_act"    value="action VARCHAR(100)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_al"><mxGeometry y="90" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="al_tbl"    value="table_name VARCHAR(100)" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_al"><mxGeometry y="120" width="220" height="30" as="geometry" /></mxCell>
+    <mxCell id="al_old"    value="old_data JSON" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;top=0;left=0;right=0;bottom=0;" vertex="1" parent="t_al"><mxGeometry y="150" width="220" height="30" as="geometry" /></mxCell>
+
+    <!-- ===================== RELATIONSHIPS ===================== -->
+
+    <!-- roles → users (1:N) -->
+    <mxCell id="rel1" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="r_role_id" target="u_role_id" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- roles → role_permissions (1:N) -->
+    <mxCell id="rel2" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="r_role_id" target="rp_role_id" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- permissions → role_permissions (1:N) -->
+    <mxCell id="rel3" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="p_perm_id" target="rp_perm_id" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- disaster_types → emergency_reports (1:N) -->
+    <mxCell id="rel4" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="dt_id" target="er_dtype" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- users → emergency_reports (1:N reported_by) -->
+    <mxCell id="rel5" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="u_user_id" target="er_repby" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- rescue_teams → emergency_reports (1:N assigned_team_id) -->
+    <mxCell id="rel6" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="rt_id" target="er_team" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- rescue_teams → team_activity_log (1:N) -->
+    <mxCell id="rel7" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="rt_id" target="tal_team" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- emergency_reports → team_activity_log (1:N) -->
+    <mxCell id="rel8" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="er_id" target="tal_rep" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- warehouses → inventory (1:N) -->
+    <mxCell id="rel9" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="wh_id" target="inv_wh" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- resource_types → inventory (1:N) -->
+    <mxCell id="rel10" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="rtid_id" target="inv_rt" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- emergency_reports → resource_allocation_requests (1:N) -->
+    <mxCell id="rel11" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="er_id" target="rar_rep" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- warehouses → resource_allocation_requests (1:N) -->
+    <mxCell id="rel12" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="wh_id" target="rar_wh" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- resource_types → resource_allocation_requests (1:N) -->
+    <mxCell id="rel13" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="rtid_id" target="rar_rt" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- hospitals → patients (1:N) -->
+    <mxCell id="rel14" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="h_id" target="pat_hosp" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- emergency_reports → patients (1:N) -->
+    <mxCell id="rel15" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="er_id" target="pat_rep" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- financial_categories → financial_transactions (1:N) -->
+    <mxCell id="rel16" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="fc_id" target="ft_cat" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- emergency_reports → financial_transactions (1:N) -->
+    <mxCell id="rel17" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="er_id" target="ft_rep" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- users → approval_requests (1:N requested_by) -->
+    <mxCell id="rel18" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="u_user_id" target="ap_reqby" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- users → audit_logs (1:N) -->
+    <mxCell id="rel19" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="u_user_id" target="al_uid" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- users → warehouses manager (1:N) -->
+    <mxCell id="rel20" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERmanyToOne;startArrow=ERmanyToOne;" edge="1" source="u_user_id" target="wh_mgr" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+  </root>
+</mxGraphModel>
