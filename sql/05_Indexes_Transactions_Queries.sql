@@ -1,3 +1,4 @@
+--05_Indexes_Transactions_Queries.sql
 -- ============================================================
 -- Smart Disaster Response MIS - INDEXES & PERFORMANCE
 -- Converted: MySQL → T-SQL (SQL Server)
@@ -40,10 +41,10 @@ CREATE INDEX idx_inventory_stock        ON inventory(warehouse_id, resource_type
 CREATE INDEX idx_inventory_threshold    ON inventory(quantity, threshold_level);
 
 -- Resource Requests
-CREATE INDEX idx_alloc_status           ON resource_allocation_requests(status);
-CREATE INDEX idx_alloc_requested_at     ON resource_allocation_requests(requested_at);
-CREATE INDEX idx_alloc_report           ON resource_allocation_requests(report_id);
-CREATE INDEX idx_alloc_warehouse        ON resource_allocation_requests(warehouse_id, resource_type_id);
+CREATE INDEX idx_alloc_status           ON resource_requests(status);
+CREATE INDEX idx_alloc_requested_at     ON resource_requests(requested_at);
+CREATE INDEX idx_alloc_report           ON resource_requests(report_id);
+CREATE INDEX idx_alloc_warehouse        ON resource_requests(warehouse_id, resource_type_id);
 
 -- Financial Transactions
 CREATE INDEX idx_fin_transaction_date   ON financial_transactions(transaction_date);
@@ -114,69 +115,29 @@ CREATE OR ALTER PROCEDURE sp_approve_and_dispatch_resource
     @p_approver_id  INT
 AS
 BEGIN
-    SET NOCOUNT ON;
+    -- Approve request
+    UPDATE resource_requests
+    SET status       = 'Approved',
+        approved_qty = @p_approved_qty,
+        approved_by  = @p_approver_id,
+        approved_at  = GETDATE()
+    WHERE request_id = @p_request_id;
 
-    DECLARE @v_warehouse_id  INT;
-    DECLARE @v_resource_type INT;
-    DECLARE @v_available_qty DECIMAL(12,2);
+    -- Dispatch
+    UPDATE resource_requests
+    SET status = 'Dispatched',
+        dispatched_at = GETDATE()
+    WHERE request_id = @p_request_id;
 
-    BEGIN TRY
-        BEGIN TRAN;
-
-        -- Lock and read the pending request
-        SELECT @v_warehouse_id  = warehouse_id,
-               @v_resource_type = resource_type_id
-        FROM   resource_allocation_requests WITH (UPDLOCK, ROWLOCK)
-        WHERE  request_id = @p_request_id
-          AND  status     = 'Pending';
-
-        IF @v_warehouse_id IS NULL
-        BEGIN
-            THROW 50001, 'Request not found or not in Pending status.', 1;
-        END;
-
-        -- Check inventory availability
-        SELECT @v_available_qty = quantity
-        FROM   inventory WITH (UPDLOCK, ROWLOCK)
-        WHERE  warehouse_id     = @v_warehouse_id
-          AND  resource_type_id = @v_resource_type;
-
-        IF @v_available_qty < @p_approved_qty
-        BEGIN
-            THROW 50002, 'Insufficient inventory for this allocation.', 1;
-        END;
-
-        -- Approve
-        UPDATE resource_allocation_requests
-        SET    status       = 'Approved',
-               approved_qty = @p_approved_qty,
-               approved_by  = @p_approver_id,
-               approved_at  = GETDATE()
-        WHERE  request_id   = @p_request_id;
-
-        -- Dispatch (trigger trg_inventory_deduct_on_dispatch fires here)
-        UPDATE resource_allocation_requests
-        SET    status        = 'Dispatched',
-               dispatched_at = GETDATE()
-        WHERE  request_id    = @p_request_id;
-
-        -- Record approval workflow
-        INSERT INTO approval_requests
-            (request_type, reference_id, requested_by, approved_by, status, decided_at)
-        SELECT 'ResourceDistribution', @p_request_id, requested_by,
-               @p_approver_id, 'Approved', GETDATE()
-        FROM   resource_allocation_requests
-        WHERE  request_id = @p_request_id;
-
-        COMMIT TRAN;
-    END TRY
-    BEGIN CATCH
-        IF @@TRANCOUNT > 0 ROLLBACK TRAN;
-        THROW;
-    END CATCH;
+    -- Approval log
+    INSERT INTO approval_requests
+    (request_type, reference_id, requested_by, approved_by, status, decided_at)
+    SELECT 'ResourceDistribution', request_id, requested_by,
+           @p_approver_id, 'Approved', GETDATE()
+    FROM resource_requests
+    WHERE request_id = @p_request_id;
 END;
 GO
-
 -- ============================================================
 -- STORED PROCEDURE 2: Assign rescue team to an incident
 -- ============================================================
@@ -186,50 +147,24 @@ CREATE OR ALTER PROCEDURE sp_assign_rescue_team
     @p_operator_id INT
 AS
 BEGIN
-    SET NOCOUNT ON;
+    -- Assign team
+    UPDATE emergency_reports
+    SET assigned_team_id = @p_team_id,
+        status = 'Assigned',
+        updated_at = GETDATE()
+    WHERE report_id = @p_report_id;
 
-    DECLARE @v_team_status VARCHAR(50);
-
-    BEGIN TRY
-        BEGIN TRAN;
-
-        -- Lock and read team availability
-        SELECT @v_team_status = availability
-        FROM   rescue_teams WITH (UPDLOCK, ROWLOCK)
-        WHERE  team_id = @p_team_id;
-
-        IF @v_team_status NOT IN ('Available','Completed')
-        BEGIN
-            THROW 50003, 'Team is not available for assignment.', 1;
-        END;
-
-        -- Update report (triggers handle team status update + activity log)
-        UPDATE emergency_reports
-        SET    assigned_team_id = @p_team_id,
-               status           = 'Assigned',
-               updated_at       = GETDATE()
-        WHERE  report_id        = @p_report_id;
-
-        -- Audit log
-        INSERT INTO audit_logs (user_id, action, table_name, record_id, new_data)
-        VALUES (
-            @p_operator_id,
-            'ASSIGN_TEAM',
-            'emergency_reports',
-            @p_report_id,
-            '{"team_id":' + CAST(@p_team_id AS VARCHAR) +
-            ',"operator":' + CAST(@p_operator_id AS VARCHAR) + '}'
-        );
-
-        COMMIT TRAN;
-    END TRY
-    BEGIN CATCH
-        IF @@TRANCOUNT > 0 ROLLBACK TRAN;
-        THROW;
-    END CATCH;
+    -- Audit log
+    INSERT INTO audit_logs (user_id, action, table_name, record_id, new_data)
+    VALUES (
+        @p_operator_id,
+        'ASSIGN_TEAM',
+        'emergency_reports',
+        @p_report_id,
+        '{"team_id":' + CAST(@p_team_id AS VARCHAR) + '}'
+    );
 END;
 GO
-
 -- ============================================================
 -- STORED PROCEDURE 3: Record financial transaction with approval workflow
 -- ============================================================
@@ -243,49 +178,25 @@ CREATE OR ALTER PROCEDURE sp_record_financial_transaction
     @p_recorded_by  INT
 AS
 BEGIN
-    SET NOCOUNT ON;
-
     DECLARE @v_txn_id INT;
 
-    BEGIN TRY
-        BEGIN TRAN;
+    INSERT INTO financial_transactions
+    (report_id, category_id, amount, description, reference_no, donor_name, recorded_by, status)
+    VALUES
+    (@p_report_id, @p_category_id, @p_amount, @p_description,
+     @p_reference_no, @p_donor_name, @p_recorded_by, 'Pending');
 
-        INSERT INTO financial_transactions
-            (report_id, category_id, amount, description, reference_no, donor_name, recorded_by, status)
-        VALUES
-            (@p_report_id, @p_category_id, @p_amount, @p_description,
-             @p_reference_no, @p_donor_name, @p_recorded_by, 'Pending');
+    SET @v_txn_id = SCOPE_IDENTITY();
 
-        -- T-SQL: SCOPE_IDENTITY() replaces LAST_INSERT_ID()
-        SET @v_txn_id = CAST(SCOPE_IDENTITY() AS INT);
+    INSERT INTO approval_requests (request_type, reference_id, requested_by, status)
+    VALUES ('FinancialApproval', @v_txn_id, @p_recorded_by, 'Pending');
 
-        -- Create approval workflow entry
-        INSERT INTO approval_requests (request_type, reference_id, requested_by, status)
-        VALUES ('FinancialApproval', @v_txn_id, @p_recorded_by, 'Pending');
+    INSERT INTO audit_logs (user_id, action, table_name, record_id)
+    VALUES (@p_recorded_by, 'CREATE_TRANSACTION', 'financial_transactions', @v_txn_id);
 
-        -- Audit log (trigger trg_financial_audit_on_insert also fires)
-        INSERT INTO audit_logs (user_id, action, table_name, record_id, new_data)
-        VALUES (
-            @p_recorded_by,
-            'CREATE_TRANSACTION',
-            'financial_transactions',
-            @v_txn_id,
-            '{"amount":' + CAST(@p_amount AS VARCHAR) +
-            ',"category_id":' + CAST(@p_category_id AS VARCHAR) + '}'
-        );
-
-        COMMIT TRAN;
-
-        -- Return new transaction ID
-        SELECT @v_txn_id AS new_transaction_id;
-    END TRY
-    BEGIN CATCH
-        IF @@TRANCOUNT > 0 ROLLBACK TRAN;
-        THROW;
-    END CATCH;
+    SELECT @v_txn_id AS new_transaction_id;
 END;
 GO
-
 -- ============================================================
 -- STORED PROCEDURE 4: Rollback demo - insufficient stock
 -- ============================================================
@@ -295,17 +206,17 @@ BEGIN
     SET NOCOUNT ON;
 
     BEGIN TRY
-        BEGIN TRAN;
+        BEGIN TRANSACTION;
 
         -- Attempt to set inventory to -9999 (trigger trg_prevent_negative_inventory will reject)
         UPDATE inventory
         SET    quantity = -9999
         WHERE  inventory_id = 1;
 
-        COMMIT TRAN;
+        COMMIT TRANSACTION;
     END TRY
     BEGIN CATCH
-        IF @@TRANCOUNT > 0 ROLLBACK TRAN;
+        IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
         SELECT 'ROLLBACK EXECUTED: Insufficient stock - transaction reversed' AS result;
     END CATCH;
 END;
@@ -373,7 +284,7 @@ SELECT
     SUM(CASE WHEN rar.status = 'Dispatched' THEN rar.approved_qty ELSE 0 END) AS dispatched,
     SUM(CASE WHEN rar.status = 'Consumed'   THEN rar.approved_qty ELSE 0 END) AS consumed,
     COUNT(*) AS total_requests
-FROM resource_allocation_requests rar
+FROM resource_requests rar
 JOIN resource_types rt ON rt.resource_type_id = rar.resource_type_id
 GROUP BY rt.type_name;
 GO

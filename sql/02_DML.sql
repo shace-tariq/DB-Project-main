@@ -181,6 +181,7 @@ GO
 -- ============================================================
 -- EMERGENCY REPORTS (sample)
 -- ============================================================
+
 INSERT INTO emergency_reports
   (citizen_name, citizen_phone, location_lat, location_lng, location_desc,
    disaster_type_id, severity_level, description, status, reported_by, assigned_team_id)
@@ -203,7 +204,7 @@ GO
 -- RESOURCE ALLOCATION REQUESTS (sample)
 -- MySQL: NOW() - INTERVAL n DAY → T-SQL: DATEADD(DAY, -n, GETDATE())
 -- ============================================================
-INSERT INTO resource_allocation_requests
+INSERT INTO resource_requests
   (report_id, warehouse_id, resource_type_id, requested_qty, approved_qty,
    status, requested_by, approved_by, requested_at, approved_at, notes)
 VALUES

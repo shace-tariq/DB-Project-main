@@ -17,7 +17,7 @@ GO
 -- TRIGGER 1: Auto-deduct inventory when resource request dispatched
 -- ============================================================
 CREATE OR ALTER TRIGGER trg_inventory_deduct_on_dispatch
-ON resource_allocation_requests
+ON resource_requests
 AFTER UPDATE
 AS
 BEGIN
@@ -266,7 +266,7 @@ GO
 -- TRIGGER 8: Prevent resource dispatch without approval
 -- ============================================================
 CREATE OR ALTER TRIGGER trg_prevent_dispatch_without_approval
-ON resource_allocation_requests
+ON resource_requests
 AFTER UPDATE
 AS
 BEGIN

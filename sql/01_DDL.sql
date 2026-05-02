@@ -25,7 +25,7 @@ CREATE TABLE roles (
 CREATE TABLE users (
     user_id       INT           IDENTITY(1,1) PRIMARY KEY,
     username      VARCHAR(100)  NOT NULL UNIQUE,
-    password_hash VARCHAR(255)  NOT NULL,
+    password      VARCHAR(100)  NOT NULL,
     full_name     VARCHAR(150)  NOT NULL,
     email         VARCHAR(150)  NOT NULL UNIQUE,
     phone         VARCHAR(20),
@@ -147,7 +147,7 @@ CREATE TABLE inventory (
     FOREIGN KEY (resource_type_id) REFERENCES resource_types(resource_type_id)
 );
 
-CREATE TABLE resource_allocation_requests (
+CREATE TABLE resource_requests (
     request_id       INT           IDENTITY(1,1) PRIMARY KEY,
     report_id        INT           NOT NULL,
     warehouse_id     INT           NOT NULL,

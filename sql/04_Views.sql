@@ -179,7 +179,7 @@ SELECT
     rar.requested_at,
     rar.approved_at,
     rar.dispatched_at
-FROM resource_allocation_requests rar
+FROM resource_requests rar
 JOIN emergency_reports er   ON er.report_id          = rar.report_id
 JOIN warehouses        w    ON w.warehouse_id         = rar.warehouse_id
 JOIN resource_types    rt2  ON rt2.resource_type_id  = rar.resource_type_id
