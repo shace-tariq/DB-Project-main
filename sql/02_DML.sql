@@ -71,16 +71,17 @@ WHERE permission_name IN ('view_financials','manage_financials','approve_workflo
 GO
 
 -- ============================================================
--- USERS  (passwords are bcrypt of "Password123!")
+-- USERS  (column must match 01_DDL.sql: users.password)
+-- Demo passwords align with README login (not for production).
 -- ============================================================
-INSERT INTO users (username, password_hash, full_name, email, phone, role_id) VALUES
-('admin',     '$2b$12$KIXqhZmzG7wqXREkO3rFiO1234567890abcdefghij', 'System Administrator', 'admin@disaster-mis.pk',         '+92-300-0000001', 1),
-('op_ahmed',  '$2b$12$KIXqhZmzG7wqXREkO3rFiO1234567890abcdefghij', 'Ahmed Khan',           'ahmed.khan@disaster-mis.pk',    '+92-300-1111111', 2),
-('op_fatima', '$2b$12$KIXqhZmzG7wqXREkO3rFiO1234567890abcdefghij', 'Fatima Malik',         'fatima.malik@disaster-mis.pk',  '+92-300-2222222', 2),
-('field_ali', '$2b$12$KIXqhZmzG7wqXREkO3rFiO1234567890abcdefghij', 'Ali Raza',             'ali.raza@disaster-mis.pk',      '+92-300-3333333', 3),
-('field_sara','$2b$12$KIXqhZmzG7wqXREkO3rFiO1234567890abcdefghij', 'Sara Hussain',         'sara.hussain@disaster-mis.pk',  '+92-300-4444444', 3),
-('wm_tariq',  '$2b$12$KIXqhZmzG7wqXREkO3rFiO1234567890abcdefghij', 'Tariq Mehmood',        'tariq.mehmood@disaster-mis.pk', '+92-300-5555555', 4),
-('fin_nadia', '$2b$12$KIXqhZmzG7wqXREkO3rFiO1234567890abcdefghij', 'Nadia Iqbal',          'nadia.iqbal@disaster-mis.pk',   '+92-300-6666666', 5);
+INSERT INTO users (username, password, full_name, email, phone, role_id) VALUES
+('admin',     'admin123',    'System Administrator', 'admin@disaster-mis.pk',         '+92-300-0000001', 1),
+('op_ahmed',  'ahmed123',    'Ahmed Khan',           'ahmed.khan@disaster-mis.pk',    '+92-300-1111111', 2),
+('op_fatima', 'fatima123',   'Fatima Malik',         'fatima.malik@disaster-mis.pk',  '+92-300-2222222', 2),
+('field_ali', 'ali123',      'Ali Raza',             'ali.raza@disaster-mis.pk',      '+92-300-3333333', 3),
+('field_sara','sara123',     'Sara Hussain',         'sara.hussain@disaster-mis.pk',  '+92-300-4444444', 3),
+('wm_tariq',  'tariq123',    'Tariq Mehmood',        'tariq.mehmood@disaster-mis.pk', '+92-300-5555555', 4),
+('fin_nadia', 'nadia123',    'Nadia Iqbal',          'nadia.iqbal@disaster-mis.pk',   '+92-300-6666666', 5);
 GO
 
 -- ============================================================

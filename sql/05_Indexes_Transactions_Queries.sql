@@ -115,27 +115,41 @@ CREATE OR ALTER PROCEDURE sp_approve_and_dispatch_resource
     @p_approver_id  INT
 AS
 BEGIN
-    -- Approve request
-    UPDATE resource_requests
-    SET status       = 'Approved',
-        approved_qty = @p_approved_qty,
-        approved_by  = @p_approver_id,
-        approved_at  = GETDATE()
-    WHERE request_id = @p_request_id;
+    SET NOCOUNT ON;
+    BEGIN TRY
+        BEGIN TRANSACTION;
 
-    -- Dispatch
-    UPDATE resource_requests
-    SET status = 'Dispatched',
-        dispatched_at = GETDATE()
-    WHERE request_id = @p_request_id;
+        UPDATE resource_requests
+        SET status         = 'Approved',
+            approved_qty   = @p_approved_qty,
+            approved_by    = @p_approver_id,
+            approved_at    = GETDATE()
+        WHERE request_id = @p_request_id;
 
-    -- Approval log
-    INSERT INTO approval_requests
-    (request_type, reference_id, requested_by, approved_by, status, decided_at)
-    SELECT 'ResourceDistribution', request_id, requested_by,
-           @p_approver_id, 'Approved', GETDATE()
-    FROM resource_requests
-    WHERE request_id = @p_request_id;
+        IF @@ROWCOUNT = 0
+        BEGIN
+            ROLLBACK TRANSACTION;
+            THROW 50001, 'Resource request not found.', 1;
+        END;
+
+        UPDATE resource_requests
+        SET status          = 'Dispatched',
+            dispatched_at   = GETDATE()
+        WHERE request_id = @p_request_id;
+
+        INSERT INTO approval_requests
+            (request_type, reference_id, requested_by, approved_by, status, decided_at)
+        SELECT 'ResourceDistribution', request_id, requested_by,
+               @p_approver_id, 'Approved', GETDATE()
+        FROM   resource_requests
+        WHERE  request_id = @p_request_id;
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH
 END;
 GO
 -- ============================================================
