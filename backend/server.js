@@ -492,7 +492,7 @@ app.post('/admit-patient', async (req, res) => {
       .query(`
         INSERT INTO patients
           (full_name, age, gender, contact_phone, hospital_id, report_id, status, notes)
-        OUTPUT INSERTED.patient_id AS new_patient_id
+        OUTPUT inserted.patient_id INTO @output
         VALUES (@full_name, @age, @gender, @phone, @hospital_id, @report_id, @status, 'Admitted via MIS')
       `);
     const newId = r.recordset[0].new_patient_id;
